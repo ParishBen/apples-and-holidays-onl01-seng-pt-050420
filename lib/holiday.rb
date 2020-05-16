@@ -83,14 +83,24 @@ puts "  Thanksgiving: #{holiday_hash[:fall][:thanksgiving].join}"
 puts "Spring:".chomp
 puts "  Memorial Day: #{holiday_hash[:spring][:memorial_day].join(", ")}".chomp
 end
-
-def all_holidays_with_bbq(holiday_hash)
-  # return an array of holiday names (as symbols) where supply lists
-  # include the string "BBQ"
-bbqTwo= holiday_hash[:spring].keys.flatten
-bbqOne= holiday_hash[:summer].keys.flatten
-bbqOne+bbqTwo
+=begin ANOTHER great way to do this not by 'hard coding'
+def all_supplies_in_holidays(supplies_hash)
+  holiday_supplies.each do |season, holidays|
+    puts "#{season.capitalize}:"
+    holidays.each do |holiday, supplies|
+      puts"  #{holiday.to_s.split('_').map {|w| w.capitalize }.join(' ') }: #{supplies.join(", ")}"
+    end
+  end
 end
+=end
+def all_holidays_with_bbq(supplies_hash)
+  supplies_hash.map do |season, holidays|
+    holidays.map do |holiday, supplies|
+      holiday if supplies.include?("BBQ")
+    end
+  end.flatten.compact
+end
+
 
 
 

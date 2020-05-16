@@ -143,3 +143,14 @@ TEXT
        :memorial_day => ["BBQ"]
     }
   }
+  
+  puts "Winter:".chomp
+puts "  Christmas: #{holiday_hash[:winter][:christmas].join(", ")}"
+puts "  New Years: #{holiday_hash[:winter][:new_years].join}"
+puts "Summer:".chomp
+puts "  Fourth Of July: #{holiday_hash[:summer][:fourth_of_july].join(", ")}"
+puts "Fall:".chomp
+puts "  Thanksgiving: #{holiday_hash[:fall][:thanksgiving].join}"
+puts "Spring:".chomp
+puts "  Memorial Day: #{holiday_hash[:spring][:memorial_day].join(", ")}".chomp
+end
